@@ -40,7 +40,8 @@ LIBS += -lX11
 
 # }
 
-INCLUDEPATH += $$PWD/3rdParty/mac/libffmpeg/include#将当前 .pro 文件所在目录下的 3rdParty/mac/libffmpeg/include 路径添加到项目的头文件搜索路径中
+INCLUDEPATH += $$PWD/3rdParty/mac/libffmpeg/include
+INCLUDEPATH += $$PWD/../common/include
 LIBS += -L$$PWD/3rdParty/mac/libFFmpeg/lib -lavformat -lavcodec -lavutil -lswresample -lswscale -lavdevice -lavfilter
 
 #INCLUDEPATH += /usr/local/ffmpeg/include
