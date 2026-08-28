@@ -1,17 +1,15 @@
 QT       += core gui
 QT += opengl openglwidgets
-QT += websockets  # WebSocket支持
-QT += multimedia  # 音视频设备管理
-QT += multimediawidgets  # 音频输出支持
+QT += websockets
+QT += multimedia
+QT += multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
 
-
 # mac{
 #     DEFINES += CCVIDEOCLIENT_MACOSX
-
 #     QMAKE_LFLAGS    += -framework QuartzCore
 #     QMAKE_LFLAGS    += -framework Foundation
 #     QMAKE_LFLAGS    += -framework CoreMedia
@@ -25,63 +23,49 @@ CONFIG += c++17
 #     QMAKE_LFLAGS    += -framework Carbon
 #     QMAKE_LFLAGS    += -framework AudioToolbox
 #     QMAKE_LFLAGS    += -framework CoreAudio
-
-
-
-LIBS += -lX11
-
-
+#     LIBS += -lX11
 #     INCLUDEPATH += /usr/local/include
 #     LIBS += -L/usr/local/lib -lz -lbz2 -llzma -liconv
 # }
 # win32
 # {
 #     DEFINES += CCVIDEOCLIENT_WIN32
-
 # }
 
 INCLUDEPATH += $$PWD/3rdParty/mac/libffmpeg/include
 INCLUDEPATH += $$PWD/../common/include
-LIBS += -L$$PWD/3rdParty/mac/libFFmpeg/lib -lavformat -lavcodec -lavutil -lswresample -lswscale -lavdevice -lavfilter
+INCLUDEPATH += $$PWD/include
+INCLUDEPATH += $$PWD/src/core
+INCLUDEPATH += $$PWD/src/decoder
+INCLUDEPATH += $$PWD/src/render
+INCLUDEPATH += $$PWD/src/network
 
-#INCLUDEPATH += /usr/local/ffmpeg/include
-#LIBS += -L/usr/local/ffmpeg/lib \
-        # -lavutil \
-        # -lavcodec \
-        # -lavformat \
-        # -lavdevice \
-        # -lswscale\
-        # -lavfilter\
-        # -lswresample
+LIBS += -L$$PWD/3rdParty/mac/libFFmpeg/lib \
+    -lavformat -lavcodec -lavutil -lswresample -lswscale -lavdevice -lavfilter
 
-
-# 编译器定义
 DEFINES += QT_DEPRECATED_WARNINGS
 
-
 SOURCES += \
-    CCOpenGLWidget.cpp \
-    CCVideoClient.cpp \
-    h264decoder.cpp \
-    aacdecoder.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    WebSocketControlClient.cpp
+    src/core/main.cpp \
+    src/core/mainwindow.cpp \
+    src/decoder/h264decoder.cpp \
+    src/decoder/aacdecoder.cpp \
+    src/render/CCOpenGLWidget.cpp \
+    src/network/CCVideoClient.cpp \
+    src/network/WebSocketControlClient.cpp
 
 HEADERS += \
-    CCOpenGLWidget.h \
-    CCSocketDefine.h \
-    CCVideoClient.h \
-    CCYUVDataDefine.h \
-    h264decoder.h \
-    aacdecoder.h \
-    mainwindow.h \
-    WebSocketControlClient.h
+    src/core/mainwindow.h \
+    src/decoder/h264decoder.h \
+    src/decoder/aacdecoder.h \
+    src/render/CCOpenGLWidget.h \
+    src/network/CCVideoClient.h \
+    src/network/WebSocketControlClient.h \
+    include/CCSocketDefine.h \
+    include/CCYUVDataDefine.h
 
 FORMS += \
-    mainwindow.ui
+    src/core/mainwindow.ui
 
 RESOURCES += \
-    videoclient.qrc
-
-
+    resources/videoclient.qrc

@@ -3,6 +3,6 @@
 #ifndef CCYUVDATADEFINE_H
 #define CCYUVDATADEFINE_H
 
-#include "../../common/include/CCYUVDataDefine.h"
+#include "../common/include/CCYUVDataDefine.h"
 
 #endif // CCYUVDATADEFINE_H

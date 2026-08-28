@@ -3,6 +3,7 @@
 #ifndef CCSOCKETDEFINE_H
 #define CCSOCKETDEFINE_H
 
-#include "../../common/include/CCCommonDef.h"
+#include "../common/include/CCCommonDef.h"
+#include "../common/include/CCYUVDataDefine.h"
 
 #endif // CCSOCKETDEFINE_H

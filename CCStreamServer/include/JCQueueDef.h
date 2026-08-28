@@ -3,6 +3,6 @@
 #ifndef JCQUEUE_DEFINE_H
 #define JCQUEUE_DEFINE_H
 
-#include "../../common/include/CCQueue.h"
+#include "../common/include/CCQueue.h"
 
 #endif // JCQUEUE_DEFINE_H

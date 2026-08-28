@@ -3,8 +3,8 @@
 #ifndef CCSTREAMSERVERDEF_H
 #define CCSTREAMSERVERDEF_H
 
-#include "../../common/include/CCCommonDef.h"
-#include "../../common/include/CCQueue.h"
+#include "../common/include/CCCommonDef.h"
+#include "../common/include/CCQueue.h"
 
 #define LISTEN_PORT 30000
 
