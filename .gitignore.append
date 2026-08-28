@@ -1,0 +1,4 @@
+# Modules downloaded by CMake / vcpkg go here.
+# Keep generated artifacts out of source control.
+downloads/
+.cache/
