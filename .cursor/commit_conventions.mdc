@@ -1,0 +1,63 @@
+# Commit Message Conventions
+
+> ⚠️ **IMPORTANT**: Before every `git commit` in this project, **ALWAYS confirm the commit message with the user**. Never commit without explicit approval.
+
+## Format (Conventional Commits)
+
+```
+<type>(<scope>): <short description>  (ENGLISH REQUIRED, Chinese optional in body)
+
+[optional body — explain WHAT & WHY, not HOW]
+
+[optional footer — e.g. breaking changes, issue refs]
+```
+
+### Common `type` values
+
+| Type       | Meaning                                          | Affects version? |
+|------------|--------------------------------------------------|------------------|
+| `feat`     | A new feature                                    | minor (`0.x.0`)  |
+| `fix`      | A bug fix                                        | patch (`0.0.x`)  |
+| `refactor` | Code change that neither fixes nor adds feature  | —                |
+| `docs`     | Documentation only                               | —                |
+| `style`    | Formatting, no logic change                      | —                |
+| `test`     | Adding or fixing tests                           | —                |
+| `chore`    | Tooling / build / dependencies                   | —                |
+| `perf`     | Performance improvement                          | patch            |
+| `ci`       | CI configuration                                 | —                |
+
+### Allowed `scope` values
+
+Use the module name (or a clear feature name):
+
+- `CCStreamServer`
+- `QtClient`
+- `ClientToMp4`
+- `common`  (shared types in `common/include/`)
+- `build`   (CMakeLists.txt / .pro changes)
+- `docs`
+- `release`
+
+### Rules
+
+1. **The subject line must be in English** (imperative mood, ≤ 50 chars).
+2. **The subject should not end with a period.**
+3. Use lowercase for the description.
+4. Reference issues / PRs in the footer when relevant (`Closes #12`, `Refs #34`).
+5. For breaking changes, add `BREAKING CHANGE: <description>` in the footer.
+
+### Examples (good)
+
+```text
+feat(CCStreamServer): add support for H.265 hardware encoder
+fix(ClientToMp4): resolve memory leak in CCVideoWriter destructor
+refactor(common): unify duplicate header definitions into common/include
+docs: add OpenGL rendering flow documentation
+chore: update .gitignore for build artifacts
+```
+
+### Workflow with Cursor Agent
+
+- **AI must propose the commit message in English first**, then ask the user to confirm before running `git commit`.
+- If the user wants Chinese comments in the body, allow that — but the subject line stays English.
+- The agent must never invent a message and silently commit.
